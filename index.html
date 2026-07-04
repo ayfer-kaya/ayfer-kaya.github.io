@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ayfer Kaya</title>
+<meta name="description" content="Ayfer Kaya. I ship AI products solo, and I teach the next generation to build. ex-Meta, ex-United Nations. Founder of Ajanda, an angel-backed AI platform.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800;900&family=Libre+Franklin:wght@700;800;900&display=swap" rel="stylesheet">
+
+<!--
+  HOW TO REORDER SECTIONS (plug and play):
+  Each section is wrapped between two marker comments, an opening one
+  reading "SECTION: name" and a closing one reading "/SECTION: name".
+  To reorder, cut everything from an opening marker through its matching
+  closing marker, then paste it elsewhere among the sections. Each block
+  carries its own spacing and divider. Keep the hero first; contact reads
+  best last.
+
+  LANGUAGE: the site opens in English. The EN/TR button in the nav swaps
+  every string via the I18N table at the bottom of this file. To edit copy,
+  edit the I18N table (both en and tr entries), not the HTML text.
+-->
+
+<style>
+  :root {
+    --ground: #E7E3D9;
+    --paper: #F3F0E8;
+    --tint: #DED9CD;
+    --ink: #1A1A18;
+    --blue: #2B4CC9;
+    --red: #CD3A2B;
+    --yellow: #E9C03A;
+    --muted: #6C665B;
+    --sans: "Archivo", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body { background: var(--ground); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  .skip { position: absolute; left: -9999px; top: 0; background: var(--ink); color: var(--ground); padding: 0.6rem 1rem; font-size: 0.8rem; z-index: 50; }
+  .skip:focus { left: 1rem; top: 1rem; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2.5rem); }
+  .label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+
+  nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding: 1.5rem 0; border-bottom: 1.5px solid var(--ink); }
+  .brand { display: flex; align-items: center; gap: 0.6rem; font-weight: 800; font-size: 1.1rem; }
+  .navlinks { display: flex; gap: clamp(0.9rem, 2.5vw, 2rem); align-items: center; flex-wrap: wrap; }
+  .navlinks a { color: var(--ink); text-decoration: none; font-size: 0.88rem; font-weight: 500; }
+  .navlinks a:hover { color: var(--blue); }
+  .lang { background: none; border: 1.5px solid var(--ink); border-radius: 999px; padding: 0.28rem 0.7rem; font-family: var(--sans); font-size: 0.76rem; font-weight: 700; letter-spacing: 0.04em; cursor: pointer; display: flex; gap: 0.35rem; align-items: center; color: var(--muted); }
+  .lang span.on { color: var(--ink); }
+  .lang:hover { border-color: var(--blue); }
+  .lang:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+
+  /* hero, single big wordmark then a row */
+  .hero { padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(2rem, 5vw, 3.5rem); }
+  .hero-eyebrow { display: block; margin-bottom: 1.2rem; }
+  .wordmark { font-family: "Libre Franklin", system-ui, sans-serif; font-weight: 800; font-size: clamp(2.8rem, 12vw, 8.5rem); line-height: 0.95; letter-spacing: -0.015em; }
+  .hero-row { display: grid; grid-template-columns: 1fr auto; gap: clamp(1.5rem, 4vw, 3rem); align-items: end; margin-top: clamp(1.5rem, 3vw, 2.5rem); }
+  @media (max-width: 720px) { .hero-row { grid-template-columns: 1fr; align-items: start; } }
+  .hero-tag { font-size: clamp(1.2rem, 3vw, 1.55rem); font-weight: 500; line-height: 1.25; max-width: 30ch; }
+  .hero-sub { color: var(--muted); margin-top: 0.8rem; max-width: 52ch; }
+  .hero-sub b { color: var(--ink); font-weight: 600; }
+  .actions { display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap; margin-top: 1.8rem; }
+  .pill { background: var(--ink); color: var(--ground); text-decoration: none; font-weight: 600; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.9rem 1.5rem; border-radius: 999px; }
+  .pill:hover { background: var(--blue); }
+  .open-link { color: var(--ink); font-weight: 500; text-decoration: none; border-bottom: 2px solid var(--red); padding-bottom: 2px; }
+  .open-link:hover { color: var(--red); }
+  .hero-art { width: 100%; max-width: 320px; height: auto; }
+
+  /* generic section block, carries its own top divider so it can move anywhere */
+  .section { padding: clamp(2.5rem, 6vw, 4rem) 0; border-top: 1.5px solid var(--ink); }
+  .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .sec-head h2 { font-weight: 800; font-size: clamp(1.6rem, 4vw, 2.4rem); letter-spacing: -0.02em; }
+
+  /* bento work grid */
+  .bento { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 168px; gap: 14px; grid-auto-flow: dense; }
+  @media (max-width: 900px) { .bento { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .bento { grid-template-columns: 1fr; grid-auto-rows: auto; } .c2 { grid-column: auto !important; } .tile { min-height: 160px; } }
+  .c2 { grid-column: span 2; }
+  .tile { border: 2px solid var(--ink); border-radius: 16px; overflow: hidden; position: relative; background: var(--paper); display: flex; flex-direction: column; }
+  a.tile { text-decoration: none; color: inherit; transition: transform 0.16s ease, box-shadow 0.16s ease; }
+  a.tile:hover, a.tile:focus-visible { transform: translate(-3px,-3px); box-shadow: 6px 6px 0 var(--ink); outline: none; }
+  .thumb { flex: 1; width: 100%; min-height: 0; display: block; }
+  .logo-thumb { flex: 1; min-height: 0; background: var(--tint); position: relative; display: flex; align-items: center; justify-content: center; }
+  .logo-thumb img { height: 72%; width: auto; }
+  .logo-thumb::before, .logo-thumb::after { content: ""; position: absolute; top: 50%; height: 2.5px; width: 15%; background: var(--ink); }
+  .logo-thumb::before { left: 8%; }
+  .logo-thumb::after { right: 8%; }
+  .chip { padding: 0.55rem 0.85rem; border-top: 2px solid var(--ink); background: var(--paper); display: flex; align-items: baseline; justify-content: space-between; gap: 0.5rem; }
+  .chip .t { font-weight: 700; font-size: 1rem; }
+  .chip .g { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+  .chip .g.live { color: var(--red); }
+  .full { width: 100%; height: 100%; display: block; }
+  .full-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .photo-cap { position: absolute; bottom: 8px; right: 12px; font-weight: 600; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--paper); text-shadow: 0 1px 4px rgba(26,26,24,0.55); }
+  .gh { background: var(--ink); color: var(--ground); }
+  .gh .pad { padding: 1rem 1.1rem; display: flex; flex-direction: column; height: 100%; }
+  .gh .big { font-weight: 800; font-size: 1.15rem; margin-top: auto; }
+  .gh .small { font-size: 0.85rem; color: #B9B4A8; }
+  .blog-tile { background: var(--red); color: var(--paper); }
+  .blog-tile .pad { padding: 1rem 1.1rem; display: flex; flex-direction: column; height: 100%; }
+  .blog-tile .label { color: var(--paper); opacity: 0.75; }
+  .blog-tile .big { font-weight: 800; font-size: 1.3rem; margin-top: auto; }
+  .blog-tile .small { font-size: 0.85rem; color: #F0D9D4; }
+
+  /* schools band (blue) */
+  .section.edu-section { border-top: none; }
+  .edu { background: var(--blue); color: var(--ground); border-radius: 18px; padding: clamp(1.75rem, 4vw, 2.75rem); }
+  .edu .label { color: var(--yellow); }
+  .edu h2 { font-weight: 800; font-size: clamp(1.7rem, 4.5vw, 2.8rem); letter-spacing: -0.02em; margin: 0.7rem 0 0.9rem; max-width: 24ch; }
+  .edu p.lead { max-width: 52ch; color: #DCE0F5; }
+  .edu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 1.75rem; }
+  @media (max-width: 700px) { .edu-grid { grid-template-columns: 1fr; } }
+  .edu-card { border: 1.5px solid rgba(243,240,232,0.4); border-radius: 12px; padding: 1.1rem; }
+  .edu-card h3 { font-weight: 700; font-size: 1.05rem; margin-bottom: 0.3rem; }
+  .edu-card p { font-size: 0.88rem; color: #DCE0F5; }
+  .edu-cta { margin-top: 1.5rem; font-size: 0.95rem; color: #DCE0F5; }
+  .edu-cta a { color: var(--ground); font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--yellow); padding-bottom: 2px; }
+  .edu-cta a:hover { color: var(--yellow); }
+
+  /* notes (blog) */
+  .notes-intro { color: var(--muted); max-width: 52ch; margin-bottom: 1.25rem; }
+  .notes-list a { display: flex; justify-content: space-between; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid rgba(26,26,24,0.16); text-decoration: none; color: var(--ink); font-weight: 500; font-size: 1rem; }
+  .notes-list a:hover { color: var(--blue); }
+  .notes-list .date { color: var(--muted); font-size: 0.78rem; white-space: nowrap; }
+  .notes-empty { color: var(--muted); font-size: 0.95rem; }
+
+  /* about / currently / highlights editorial */
+  .editorial { display: grid; grid-template-columns: 1.1fr 0.9fr 1fr; gap: clamp(1.5rem, 4vw, 2.5rem); }
+  @media (max-width: 760px) { .editorial { grid-template-columns: 1fr; } }
+  .col .label { display: block; margin-bottom: 1rem; }
+  .col p { font-size: 0.95rem; max-width: 40ch; }
+  .clist { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .clist li { display: flex; gap: 0.55rem; font-size: 0.95rem; }
+  .clist .a { color: var(--red); font-weight: 700; }
+
+  /* contact band */
+  .section.contact-section { border-top: none; padding-bottom: clamp(1.5rem,4vw,2.5rem); }
+  .contact-band { background: var(--ink); color: var(--ground); border-radius: 18px; padding: clamp(2rem, 5vw, 3rem); }
+  .contact-band .label { color: var(--red); }
+  .contact-band h2 { font-weight: 800; font-size: clamp(2rem, 5vw, 3.2rem); letter-spacing: -0.02em; margin: 0.75rem 0 1rem; }
+  .contact-band .lead { max-width: 56ch; color: #B9B4A8; margin-bottom: 1.75rem; }
+  .links { display: flex; flex-wrap: wrap; gap: 0.9rem 2rem; }
+  .links a { color: var(--ground); font-size: clamp(1.3rem, 4vw, 1.9rem); font-weight: 800; text-decoration: none; border-bottom: 3px solid transparent; transition: color 0.2s, border-color 0.2s; }
+  .links a:hover, .links a:focus-visible { color: var(--red); border-color: var(--red); outline: none; }
+  footer { padding: 0 0 3rem; color: var(--muted); font-size: 0.85rem; }
+
+  a:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+</style>
+</head>
+<body>
+<a class="skip" href="#work" data-i18n="skip">Skip to work</a>
+<div class="wrap">
+
+  <nav>
+    <span class="brand">
+      <svg width="62" height="22" viewBox="0 0 62 22" aria-hidden="true"><circle cx="11" cy="11" r="9" fill="#E9C03A"/><path d="M31 2 L40 20 L22 20 Z" fill="#2B4CC9"/><rect x="44" y="2" width="18" height="18" fill="#CD3A2B"/></svg>
+      Ayfer Kaya
+    </span>
+    <div class="navlinks">
+      <a href="#work" data-i18n="nav.work">Work</a>
+      <a href="#schools" data-i18n="nav.schools">For schools</a>
+      <a href="#notes" data-i18n="nav.notes">Notes</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+      <button class="lang" id="langToggle" type="button" aria-label="Switch language / Dil degistir"><span id="langEN" class="on">EN</span><span aria-hidden="true">/</span><span id="langTR">TR</span></button>
+    </div>
+  </nav>
+
+  <!-- SECTION: hero (keep first) -->
+  <header class="hero">
+    <span class="label hero-eyebrow" data-i18n="hero.eyebrow">Ankara, Türkiye / Open to roles and collaborations</span>
+    <h1 class="wordmark">Ayfer Kaya</h1>
+    <div class="hero-row">
+      <div>
+        <p class="hero-tag" data-i18n="hero.tag">I ship AI products solo, and I teach the next generation to build. ex-Meta, ex-United Nations.</p>
+        <p class="hero-sub" data-i18n="hero.sub"><b>Ajanda</b>, my AI platform, went from idea to paying users, angel investment, and a national startup prize. Before that: hiring deep-tech teams at Meta and a VC-backed SaaS scale-up, risk intelligence at Dow Jones, refugee protection at UNHCR.</p>
+        <div class="actions">
+          <a class="pill" href="#work" data-i18n="cta.work">See the work</a>
+          <a class="open-link" href="#schools" data-i18n="cta.school">Invite me to your school</a>
+        </div>
+      </div>
+      <svg class="hero-art" viewBox="0 0 300 320" role="img" aria-label="A Bauhaus composition in primary blue, red, and yellow.">
+        <rect x="150" y="20" width="120" height="150" fill="#2B4CC9"/>
+        <path d="M120 90 A70 70 0 0 1 120 230 Z" fill="#CD3A2B"/>
+        <circle cx="70" cy="80" r="46" fill="#E9C03A"/>
+        <path d="M40 300 L110 300 L75 240 Z" fill="#2B4CC9"/>
+        <g stroke="#1A1A18" stroke-width="1.5"><line x1="200" y1="210" x2="280" y2="210"/><line x1="200" y1="222" x2="280" y2="222"/><line x1="200" y1="234" x2="280" y2="234"/><line x1="200" y1="246" x2="280" y2="246"/></g>
+        <rect x="232" y="276" width="34" height="34" fill="#CD3A2B"/>
+      </svg>
+    </div>
+  </header>
+  <!-- /SECTION: hero -->
+
+  <!-- SECTION: work -->
+  <section class="section" id="work">
+    <div class="sec-head"><h2 data-i18n="work.title">Selected work</h2><span class="label" data-i18n="work.hint">Tap a tile</span></div>
+    <div class="bento">
+
+      <a class="tile c2" href="https://ajanda.app">
+        <!-- ajanda-mark.png lives in the repo next to index.html -->
+        <div class="logo-thumb">
+          <img src="ajanda-mark.png" alt="">
+        </div>
+        <div class="chip"><span class="t">Ajanda</span><span class="g live" data-i18n="chip.ajanda">Live / angel-backed</span></div>
+      </a>
+
+      <a class="tile" href="https://muse-stylai.lovable.app/">
+        <svg class="thumb" viewBox="0 0 200 130" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="200" height="130" fill="#DED9CD"/>
+          <circle cx="88" cy="60" r="40" fill="none" stroke="#1A1A18" stroke-width="3"/>
+          <path d="M88 20 A40 40 0 0 1 88 100 Z" fill="#2B4CC9"/>
+          <line x1="88" y1="100" x2="88" y2="116" stroke="#1A1A18" stroke-width="3"/>
+          <line x1="70" y1="116" x2="106" y2="116" stroke="#1A1A18" stroke-width="3"/>
+          <circle cx="150" cy="36" r="10" fill="#E9C03A"/>
+          <path d="M142 88 L162 88 L152 70 Z" fill="#CD3A2B"/>
+        </svg>
+        <div class="chip"><span class="t">Muse</span><span class="g" data-i18n="chip.muse">AI styling</span></div>
+      </a>
+
+      <a class="tile" href="https://todokit.vercel.app/">
+        <svg class="thumb" viewBox="0 0 200 130" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="200" height="130" fill="#DED9CD"/>
+          <rect x="30" y="22" width="24" height="24" fill="#2B4CC9"/>
+          <path d="M35 34 L41 40 L50 27" stroke="#F3F0E8" stroke-width="3" fill="none"/>
+          <rect x="30" y="56" width="24" height="24" fill="none" stroke="#1A1A18" stroke-width="2.5"/>
+          <rect x="30" y="90" width="24" height="24" fill="none" stroke="#1A1A18" stroke-width="2.5"/>
+          <line x1="66" y1="34" x2="168" y2="34" stroke="#1A1A18" stroke-width="3"/>
+          <line x1="66" y1="68" x2="150" y2="68" stroke="#CD3A2B" stroke-width="3"/>
+          <line x1="66" y1="102" x2="130" y2="102" stroke="#E9C03A" stroke-width="3"/>
+        </svg>
+        <div class="chip"><span class="t">TodoKit</span><span class="g" data-i18n="chip.todokit">Task app</span></div>
+      </a>
+
+      <a class="tile" href="https://aytenintatlilari.vercel.app/">
+        <svg class="thumb" viewBox="0 0 200 130" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="200" height="130" fill="#DED9CD"/>
+          <path d="M62 108 A38 38 0 0 1 138 108 Z" fill="#2B4CC9"/>
+          <path d="M74 108 A26 26 0 0 1 126 108 Z" fill="#E9C03A"/>
+          <path d="M86 108 A14 14 0 0 1 114 108 Z" fill="#CD3A2B"/>
+          <circle cx="100" cy="36" r="8" fill="#1A1A18"/>
+          <line x1="100" y1="44" x2="100" y2="60" stroke="#1A1A18" stroke-width="2.5"/>
+        </svg>
+        <div class="chip"><span class="t">Ayten'in Tatlıları</span><span class="g" data-i18n="chip.ayten">Family app</span></div>
+      </a>
+
+      <!-- photobw.jpg lives in the repo next to index.html -->
+      <div class="tile">
+        <img class="full-img" src="photobw.jpg" alt="Ayfer Kaya.">
+        <span class="photo-cap" data-i18n="photo.cap">that's me</span>
+      </div>
+
+      <div class="tile">
+        <svg class="thumb" viewBox="0 0 200 130" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="200" height="130" fill="#DED9CD"/>
+          <rect x="22" y="18" width="30" height="30" fill="#2B4CC9"/><rect x="58" y="18" width="30" height="30" fill="#CD3A2B"/><rect x="94" y="18" width="30" height="30" fill="#E9C03A"/><rect x="130" y="18" width="30" height="30" fill="#2B4CC9"/>
+          <rect x="22" y="52" width="30" height="30" fill="#CD3A2B"/><rect x="58" y="52" width="30" height="30" fill="#E9C03A"/><rect x="94" y="52" width="30" height="30" fill="#2B4CC9"/><rect x="130" y="52" width="30" height="30" fill="#CD3A2B"/>
+          <rect x="22" y="86" width="30" height="26" fill="#E9C03A"/><rect x="58" y="86" width="30" height="26" fill="#2B4CC9"/><rect x="94" y="86" width="30" height="26" fill="#CD3A2B"/><rect x="130" y="86" width="30" height="26" fill="#E9C03A"/>
+        </svg>
+        <div class="chip"><span class="t">Identity Mosaic</span><span class="g" data-i18n="chip.wip">Work in progress</span></div>
+      </div>
+
+      <div class="tile">
+        <svg class="thumb" viewBox="0 0 200 130" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="200" height="130" fill="#DED9CD"/>
+          <rect x="40" y="26" width="120" height="18" fill="#E9C03A"/>
+          <rect x="40" y="48" width="120" height="24" fill="#CD3A2B"/>
+          <rect x="40" y="76" width="120" height="30" fill="#2B4CC9"/>
+          <path d="M100 82 L122 106 L78 106 Z" fill="#DED9CD"/>
+          <circle cx="100" cy="35" r="8" fill="#1A1A18"/>
+        </svg>
+        <div class="chip"><span class="t">Starminer</span><span class="g" data-i18n="chip.wip2">Work in progress</span></div>
+      </div>
+
+      <a class="tile c2 blog-tile" href="#notes">
+        <div class="pad">
+          <span class="label" data-i18n="blog.label">Writing</span>
+          <span class="big" data-i18n="blog.big">Notes &darr;</span>
+          <span class="small" data-i18n="blog.small">On building with AI, product, and policy.</span>
+        </div>
+      </a>
+
+      <a class="tile gh" href="https://github.com/ayfer-kaya">
+        <div class="pad">
+          <span class="label" style="color:var(--yellow);" data-i18n="gh.label">More</span>
+          <span class="big" data-i18n="gh.big">On GitHub &rarr;</span>
+          <span class="small" data-i18n="gh.small">Everything I am building in the open.</span>
+        </div>
+      </a>
+
+      <div class="tile">
+        <svg class="full" viewBox="0 0 200 168" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Bauhaus composition.">
+          <rect width="200" height="168" fill="#2B4CC9"/>
+          <circle cx="60" cy="62" r="38" fill="#E9C03A"/>
+          <path d="M116 28 L172 120 L60 120 Z" fill="#CD3A2B"/>
+          <rect x="120" y="124" width="50" height="50" fill="#E9C03A"/>
+          <g stroke="#F3F0E8" stroke-width="2"><line x1="20" y1="140" x2="92" y2="140"/><line x1="20" y1="152" x2="92" y2="152"/></g>
+        </svg>
+      </div>
+
+    </div>
+  </section>
+  <!-- /SECTION: work -->
+
+  <!-- SECTION: schools (blue band) -->
+  <section class="section edu-section" id="schools">
+    <div class="edu">
+      <span class="label" data-i18n="schools.label">For schools</span>
+      <h2 data-i18n="schools.h2">Entrepreneurship education for the generation that will build with AI.</h2>
+      <p class="lead" data-i18n="schools.lead">I am developing a hands-on entrepreneurship programme for high schools. Students should not only learn about innovation and technology; they should experience turning an idea into a real project. It is designed for schools that want students to become confident makers, not passive technology users.</p>
+      <div class="edu-grid">
+        <div class="edu-card"><h3 data-i18n="schools.c1h">From idea to project</h3><p data-i18n="schools.c1p">Students identify a problem, shape an idea, test assumptions, build a simple prototype, and present their work clearly.</p></div>
+        <div class="edu-card"><h3 data-i18n="schools.c2h">AI as a creative tool</h3><p data-i18n="schools.c2p">Students use AI responsibly as a thinking, research, design, and prototyping partner: not a shortcut, a tool for better execution.</p></div>
+        <div class="edu-card"><h3 data-i18n="schools.c3h">Real-world confidence</h3><p data-i18n="schools.c3p">Communication, initiative, teamwork, and ownership: the skills students need whether they become founders, engineers, or leaders.</p></div>
+      </div>
+      <p class="edu-cta" data-i18n="schools.cta">Interested in bringing this to your school? <a href="#contact">Let's talk.</a></p>
+    </div>
+  </section>
+  <!-- /SECTION: schools -->
+
+  <!-- SECTION: notes (blog) -->
+  <section class="section" id="notes">
+    <div class="sec-head"><h2 data-i18n="notes.h2">Notes</h2><span class="label" data-i18n="notes.label">Writing</span></div>
+    <p class="notes-intro" data-i18n="notes.intro">Essays and working notes on building AI products solo, product judgment, and where policy meets AI.</p>
+    <div class="notes-list">
+      <!-- EDIT: each post is one line here. Add a new line per post, newest on top.
+           Post pages live as separate files in the repo, for example notes/my-first-post.html
+           Template row:
+      <a href="notes/my-first-post.html"><span>Post title here</span><span class="date">Jul 2026</span></a>
+      -->
+      <p class="notes-empty" data-i18n="notes.empty">First notes are on the way.</p>
+    </div>
+  </section>
+  <!-- /SECTION: notes -->
+
+  <!-- SECTION: about (editorial three columns) -->
+  <section class="section" id="about">
+    <div class="editorial">
+      <div class="col">
+        <span class="label" data-i18n="about.label">About</span>
+        <p data-i18n="about.p">I have worked across very different worlds: refugee protection at UNHCR, risk intelligence at Dow Jones, technical hiring at Meta and a VC-backed SaaS scale-up, and now my own AI product company. That range is the advantage: I can work credibly with institutions and still move fast enough to ship. Around the products, I support Ankara's AI builder scene where I can, mentoring at hackathons, facilitating sessions, and opening my network to bring more people in.</p>
+      </div>
+      <div class="col">
+        <span class="label" data-i18n="cur.label">Currently</span>
+        <ul class="clist">
+          <li><span class="a">&rarr;</span> <span data-i18n="cur.1">Building Ajanda</span></li>
+          <li><span class="a">&rarr;</span> <span data-i18n="cur.2">Developing an entrepreneurship programme for high schools</span></li>
+          <li><span class="a">&rarr;</span> <span data-i18n="cur.3">Mentoring and supporting AI build events in Ankara</span></li>
+          <li><span class="a">&rarr;</span> <span data-i18n="cur.4">Sharing my work more openly, after years of doing serious things too quietly</span></li>
+          <li><span class="a">&rarr;</span> <span data-i18n="cur.5">Open to roles and collaborations</span></li>
+        </ul>
+      </div>
+      <div class="col">
+        <span class="label" data-i18n="hi.label">Highlights</span>
+        <ul class="clist">
+          <li><span class="a">&rarr;</span> <span data-i18n="hi.1">BİTES Special Prize, Yeni Fikirler Yeni İşler 2025</span></li>
+          <li><span class="a">&rarr;</span> <span data-i18n="hi.2">Angel investment for Ajanda</span></li>
+          <li><span class="a">&rarr;</span> <span data-i18n="hi.3">2.5x annual hiring target at Meta</span></li>
+          <li><span class="a">&rarr;</span> <span data-i18n="hi.4">Trained 200+ government officers with UNHCR</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!-- /SECTION: about -->
+
+  <!-- SECTION: contact -->
+  <section class="section contact-section" id="contact">
+    <div class="contact-band">
+      <span class="label" data-i18n="contact.label">Get in touch</span>
+      <h2 data-i18n="contact.h2">Let's build something useful.</h2>
+      <p class="lead" data-i18n="contact.lead">I am open to school partnerships, entrepreneurship workshops, product collaborations, speaking invitations, and selected AI and product opportunities.</p>
+      <div class="links">
+        <a href="mailto:ayferajanda@gmail.com" data-i18n="contact.email">Email</a>
+        <a href="https://github.com/ayfer-kaya">GitHub</a>
+        <a href="https://www.linkedin.com/in/ayfer-kaya">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+  <!-- /SECTION: contact -->
+
+  <footer>&copy; <span id="year"></span> Ayfer Kaya. <span data-i18n="footer.line">Built by me, because that is the point.</span></footer>
+
+</div>
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// LANGUAGE: edit copy here, in both en and tr, not in the HTML above.
+const I18N = {
+  en: {
+    "skip": `Skip to work`,
+    "nav.work": `Work`,
+    "nav.schools": `For schools`,
+    "nav.notes": `Notes`,
+    "nav.about": `About`,
+    "nav.contact": `Contact`,
+    "hero.eyebrow": `Ankara, Türkiye / Open to roles and collaborations`,
+    "hero.tag": `I ship AI products solo, and I teach the next generation to build. ex-Meta, ex-United Nations.`,
+    "hero.sub": `<b>Ajanda</b>, my AI platform, went from idea to paying users, angel investment, and a national startup prize. Before that: hiring deep-tech teams at Meta and a VC-backed SaaS scale-up, risk intelligence at Dow Jones, refugee protection at UNHCR.`,
+    "cta.work": `See the work`,
+    "cta.school": `Invite me to your school`,
+    "work.title": `Selected work`,
+    "work.hint": `Tap a tile`,
+    "chip.ajanda": `Live / angel-backed`,
+    "chip.muse": `AI styling`,
+    "chip.todokit": `Task app`,
+    "chip.ayten": `Family app`,
+    "photo.cap": `that's me`,
+    "chip.wip": `Work in progress`,
+    "chip.wip2": `Work in progress`,
+    "blog.label": `Writing`,
+    "blog.big": `Notes &darr;`,
+    "blog.small": `On building with AI, product, and policy.`,
+    "gh.label": `More`,
+    "gh.big": `On GitHub &rarr;`,
+    "gh.small": `Everything I am building in the open.`,
+    "schools.label": `For schools`,
+    "schools.h2": `Entrepreneurship education for the generation that will build with AI.`,
+    "schools.lead": `I am developing a hands-on entrepreneurship programme for high schools. Students should not only learn about innovation and technology; they should experience turning an idea into a real project. It is designed for schools that want students to become confident makers, not passive technology users.`,
+    "schools.c1h": `From idea to project`,
+    "schools.c1p": `Students identify a problem, shape an idea, test assumptions, build a simple prototype, and present their work clearly.`,
+    "schools.c2h": `AI as a creative tool`,
+    "schools.c2p": `Students use AI responsibly as a thinking, research, design, and prototyping partner: not a shortcut, a tool for better execution.`,
+    "schools.c3h": `Real-world confidence`,
+    "schools.c3p": `Communication, initiative, teamwork, and ownership: the skills students need whether they become founders, engineers, or leaders.`,
+    "schools.cta": `Interested in bringing this to your school? <a href="#contact">Let's talk.</a>`,
+    "notes.h2": `Notes`,
+    "notes.label": `Writing`,
+    "notes.intro": `Essays and working notes on building AI products solo, product judgment, and where policy meets AI.`,
+    "notes.empty": `First notes are on the way.`,
+    "about.label": `About`,
+    "about.p": `I have worked across very different worlds: refugee protection at UNHCR, risk intelligence at Dow Jones, technical hiring at Meta and a VC-backed SaaS scale-up, and now my own AI product company. That range is the advantage: I can work credibly with institutions and still move fast enough to ship. Around the products, I support Ankara's AI builder scene where I can, mentoring at hackathons, facilitating sessions, and opening my network to bring more people in.`,
+    "cur.label": `Currently`,
+    "cur.1": `Building Ajanda`,
+    "cur.2": `Developing an entrepreneurship programme for high schools`,
+    "cur.3": `Mentoring and supporting AI build events in Ankara`,
+    "cur.4": `Sharing my work more openly, after years of doing serious things too quietly`,
+    "cur.5": `Open to roles and collaborations`,
+    "hi.label": `Highlights`,
+    "hi.1": `BİTES Special Prize, Yeni Fikirler Yeni İşler 2025`,
+    "hi.2": `Angel investment for Ajanda`,
+    "hi.3": `2.5x annual hiring target at Meta`,
+    "hi.4": `Trained 200+ government officers with UNHCR`,
+    "contact.label": `Get in touch`,
+    "contact.h2": `Let's build something useful.`,
+    "contact.lead": `I am open to school partnerships, entrepreneurship workshops, product collaborations, speaking invitations, and selected AI and product opportunities.`,
+    "contact.email": `Email`,
+    "footer.line": `Built by me, because that is the point.`
+  },
+  tr: {
+    "skip": `İşlere atla`,
+    "nav.work": `İşler`,
+    "nav.schools": `Okullar için`,
+    "nav.notes": `Notlar`,
+    "nav.about": `Hakkımda`,
+    "nav.contact": `İletişim`,
+    "hero.eyebrow": `Ankara, Türkiye / İş birliklerine, okul programlarına ve seçili fırsatlara açığım`,
+    "hero.tag": `Yapay zekâ ürünlerini uçtan uca geliştiren bir kurucu, üretici ve eğitmenim. Birleşmiş Milletler, kamu kurumları, sivil toplum ve Meta gibi dünyanın önde gelen teknoloji şirketlerinde farklı alanlara yayılan bir kariyerim oldu.`,
+    "hero.sub": `Yapay zekâ destekli kişisel gelişim platformum <b>Ajanda</b>, fikir aşamasından kullanıcılara, melek yatırıma ve ODTÜ Teknokent girişimcilik programı Yeni Fikirler Yeni İşler'den BİTES Özel Ödülü'ne ulaştı. Daha önce Meta'da teknik ekipler için işe alım yaptım, Dow Jones'ta risk analizi alanında çalıştım, Birleşmiş Milletler bünyesinde mülteci koruma ve kamu kurumlarıyla yürütülen projelerde görev aldım.`,
+    "cta.work": `Projeleri gör`,
+    "cta.school": `Okulunuz için konuşalım`,
+    "work.title": `Seçilmiş işler`,
+    "work.hint": `İncelemek için dokun`,
+    "chip.ajanda": `Yayında / melek yatırımlı`,
+    "chip.muse": `Yapay zekâ ile stil`,
+    "chip.todokit": `Görev uygulaması`,
+    "chip.ayten": `Aile uygulaması`,
+    "photo.cap": `bu benim`,
+    "chip.wip": `Yapım aşamasında`,
+    "chip.wip2": `Yapım aşamasında`,
+    "blog.label": `Yazılar`,
+    "blog.big": `Notlar &darr;`,
+    "blog.small": `Yapay zekâ ile üretim, ürün ve politika üzerine.`,
+    "gh.label": `Dahası`,
+    "gh.big": `GitHub'da &rarr;`,
+    "gh.small": `Ürettiğim her şey, herkese açık.`,
+    "schools.label": `Okullar için`,
+    "schools.h2": `Yapay zekâ ile üretecek nesil için girişimcilik eğitimi.`,
+    "schools.lead": `Liseler için uygulamalı bir girişimcilik programı geliştiriyorum. Bu programda öğrenciler inovasyonu, teknolojiyi ve girişimciliği yalnızca dinleyerek öğrenmez. Bir fikri seçmeyi, geliştirmeyi, test etmeyi ve gerçek bir projeye dönüştürmeyi deneyimler.<br><br>Program, öğrencilerini teknolojinin pasif kullanıcıları değil, özgüvenli üreticileri haline getirmek isteyen okullar için tasarlandı.`,
+    "schools.c1h": `Fikirden projeye`,
+    "schools.c1p": `Öğrenciler bir problem belirler, fikrini şekillendirir, varsayımlarını test eder, basit bir prototip geliştirir ve çalışmalarını net biçimde sunar.`,
+    "schools.c2h": `Yaratıcı bir araç olarak yapay zekâ`,
+    "schools.c2p": `Öğrenciler yapay zekâyı düşünme, araştırma, tasarım ve prototipleme ortağı olarak sorumlu biçimde kullanır. Kestirme bir yol olarak değil, daha iyi düşünmenin ve üretmenin aracı olarak.`,
+    "schools.c3h": `Gerçek dünya özgüveni`,
+    "schools.c3p": `İletişim, inisiyatif alma, ekip çalışması ve sorumluluk üstlenme. Kurucu, mühendis, araştırmacı, tasarımcı ya da lider, hangi yolu seçerlerse seçsinler öğrencilerin ihtiyaç duyacağı beceriler.`,
+    "schools.cta": `Programı okulunuzda uygulamak ister misiniz? <a href="#contact">Konuşalım.</a>`,
+    "notes.h2": `Notlar`,
+    "notes.label": `Yazılar`,
+    "notes.intro": `Tek başına yapay zekâ ürünü geliştirmek, ürün sezgisi, girişimcilik ve yapay zekânın toplumla kesiştiği alanlar üzerine notlar.`,
+    "notes.empty": `İlk notlar yolda.`,
+    "about.label": `Hakkımda`,
+    "about.p": `Birbirinden çok farklı dünyalarda çalıştım: Birleşmiş Milletler Mülteciler Yüksek Komiserliği bünyesinde mülteci koruma, kamu kurumlarıyla yürütülen projeler, sivil toplum, Dow Jones'ta risk analizi, Meta'da teknik işe alım ve şimdi de kendi yapay zekâ ürünüm Ajanda.<br><br>Bu çeşitlilik benim avantajım. Kurumlarla güven ilişkisi kurarak çalışabiliyor, aynı zamanda hızlı hareket edip ürün çıkarabiliyorum.<br><br>Ürün geliştirmenin yanında, Ankara'daki yapay zekâ ve üretim ekosistemine elimden geldiğince destek oluyorum. Hackathonlarda mentorluk yapıyor, oturumlar kolaylaştırıyor ve daha fazla insanın üretmeye başlaması için insanları, fikirleri ve fırsatları bir araya getiriyorum.`,
+    "cur.label": `Şu sıralar`,
+    "cur.1": `Ajanda'yı geliştiriyorum`,
+    "cur.2": `Liseler için bir girişimcilik programı tasarlıyorum`,
+    "cur.3": `Ankara'daki yapay zekâ etkinliklerinde mentorluk yapıyor ve destek veriyorum`,
+    "cur.4": `Yıllarca ciddi işleri fazla sessizce yaptıktan sonra, çalışmalarımı daha açık paylaşıyorum`,
+    "cur.5": `Yeni rollere ve iş birliklerine açığım`,
+    "hi.label": `Öne çıkanlar`,
+    "hi.1": `BİTES Özel Ödülü, ODTÜ Teknokent Yeni Fikirler Yeni İşler 2025`,
+    "hi.2": `Ajanda'ya melek yatırım`,
+    "hi.3": `Meta'da yıllık işe alım hedefinin 2,5 katı`,
+    "hi.4": `Birleşmiş Milletler Mülteciler Yüksek Komiserliği kapsamında 200+ kamu görevlisine eğitim`,
+    "contact.label": `İletişim`,
+    "contact.h2": `Birlikte işe yarar bir şey yapalım.`,
+    "contact.lead": `Okul iş birlikleri, girişimcilik atölyeleri, ürün iş birlikleri, konuşma davetleri ve seçili yapay zekâ projeleri için benimle iletişime geçebilirsiniz.`,
+    "contact.email": `E-posta`,
+    "footer.line": `Ben yaptım, sen de yapabilirsin.`
+  }
+};
+
+let currentLang = "en";
+
+function setLang(l) {
+  const table = I18N[l];
+  if (!table) return;
+  document.querySelectorAll("[data-i18n]").forEach(function (el) {
+    const key = el.getAttribute("data-i18n");
+    if (table[key] !== undefined) el.innerHTML = table[key];
+  });
+  document.documentElement.lang = l;
+  document.getElementById("langEN").classList.toggle("on", l === "en");
+  document.getElementById("langTR").classList.toggle("on", l === "tr");
+  currentLang = l;
+  try { localStorage.setItem("lang", l); } catch (e) {}
+}
+
+document.getElementById("langToggle").addEventListener("click", function () {
+  setLang(currentLang === "en" ? "tr" : "en");
+});
+
+(function () {
+  let saved = "en";
+  try { saved = localStorage.getItem("lang") || "en"; } catch (e) {}
+  if (saved === "tr") setLang("tr");
+})();
+</script>
+</body>
+</html>
